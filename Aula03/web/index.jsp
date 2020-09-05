@@ -15,16 +15,8 @@
     <body>
         <h1>Java Server Page</h1>
         <h2>Index</h2>
-        <% 
-            java.util.Date agora = new java.util.Date();
-            out.println("<h3>Agora no servidor"+agora+"</h3>");
-            %><%--Exemplo de um Scriptlet --%>
-            
+        <h3><a href="server-date.jsp">Data / hora no servidor</a></h3>
         
-        <h3>Agora, no servidor <%= agora +" teste" %></h3>
-        <%--Exemplo de um Expression --%>
-        <%--Nao dar expaço entre o marcador do sptlet e a iguladade.--%>
-
-        <h2><a href="minha-idade.jsp">Tarefa 01 - Aula03(Scriptlet)</a></h2>
+        <h3><a href="minha-idade.jsp">Tarefa 01 - Aula03(Scriptlet)</a></h3>
     </body>
 </html>

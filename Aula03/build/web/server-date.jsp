@@ -10,21 +10,22 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Index - JSP Page</title>
+        <title>Data / Hora - JSP Page</title>
     </head>
     <body>
         <h1>Java Server Page</h1>
-        <h2>Index</h2>
+        <h2>Data / Hora no servidor</h2>
+        
+        <h3>Utilizando os Scriptlet:</h3>
         <% 
             java.util.Date agora = new java.util.Date();
-            out.println("<h3>Agora no servidor"+agora+"</h3>");
+            out.println("<h4>Agora no servidor"+agora+"</h4>");
             %><%--Exemplo de um Scriptlet --%>
             
-        
-        <h3>Agora, no servidor <%= agora +" teste" %></h3>
+        <h3>Utilizando Expressions:</h3>
+        <h4>Agora, no servidor <%= agora +" teste" %></h4>
         <%--Exemplo de um Expression --%>
         <%--Nao dar expaço entre o marcador do sptlet e a iguladade.--%>
-
-        <h2><a href="minha-idade.jsp">Tarefa 01 - Aula03(Scriptlet)</a></h2>
+        <h2><a href="index.jsp">Voltar</a></h2>
     </body>
 </html>
