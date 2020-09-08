@@ -31,13 +31,15 @@
         <hr/>
         <table border = "1">
             <tr>
-                <th>Números Aleatórios 2</th>
+                <th>Índice</th>
+                <th>Números</th>
             </tr>
             <% if (request.getParameter("n") == null){ %>
             <tr><td colspan="2">Não há parâmetros</td></tr>
             <% } %>
             <% for (int i = 1; i<= n; i ++) { %>
             <tr>
+                <td><%= i %></td>
                 <td>
                     <%= ((int)(100 * Math.random()))%>
                 </td>
