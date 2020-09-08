@@ -16,5 +16,18 @@
         <h1>Java Server Page</h1>
         <h2>Numeros aleatóriosr</h2> 
         
+        <table border = "1">
+            <tr>
+                <th>Números</th>
+            </tr>
+            <% for (int i = 1; i<10; i ++) { %>
+            <tr>
+                <td>
+                    <%= ((int)(100 * Math.random()))%>
+                </td>
+            </tr>
+           <% } %>
+        </table>
+        
     </body>
 </html>
