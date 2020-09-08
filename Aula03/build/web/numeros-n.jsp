@@ -7,10 +7,12 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
-   <% int n;
+   <%  Exception requestException = null;
+       int n;
                 try{ n = Integer.parseInt(request.getParameter("n")); 
                 } catch(Exception ex ) {
                     n = 0;
+                    requestException = ex;
         } %>
 <html>
     <head>
@@ -36,7 +38,9 @@
             </tr>
             <% if (request.getParameter("n") == null){ %>
             <tr><td colspan="2">Não há parâmetros</td></tr>
-            <% } %>
+            <% } else  if(requestException!=null){%>
+            <tr><td colspan="2">Parâmetro Inválido</td></tr>
+            <%}%> 
             <% for (int i = 1; i<= n; i ++) { %>
             <tr>
                 <td><%= i %></td>
