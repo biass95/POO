@@ -19,5 +19,6 @@
         <h3><a href="minha-idade.jsp">Tarefa 01 - Aula03(Scriptlet)</a></h3>
         <h3><a href="numeros.jsp">Números aleatórios</a></h3>
         <h3><a href="numeros-n.jsp">Números aleatórios Parametrizados</a></h3>
+        <h3><a href="tabuada.jsp">Tabuada</a></h3>
     </body>
 </html>
