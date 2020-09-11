@@ -22,7 +22,7 @@
     
         <h4><a href="index.jsp">Voltar</a></h4>
         <h1>Java Server Page</h1>
-        <h2>Numeros aleatórios 2</h2> 
+        <h2>Tabuada - Java Server Page</h2> 
         
         <form>
             Quantidade:
@@ -31,24 +31,25 @@
         </form>
         
         <hr/>
-        <table border = "1">
+        <table >
             <tr>
-                <th>Índice</th>
-                <th>Números</th>
+                <th>Tabuada</th>
             </tr>
             <% if (request.getParameter("n") == null){ %>
             <tr><td colspan="2">Não há parâmetros</td></tr>
             <% } else  if(requestException!=null){%>
             <tr><td colspan="2">Parâmetro Inválido</td></tr>
-            <%}%> 
-            <% for (int i = 1; i<= n; i ++) { %>
+            <%} else {%> 
+            <% for (int i = 1; i<= 10; i ++) { %>
             <tr>
+                <td><%= n %></td>
+                <td>x</td>
                 <td><%= i %></td>
-                <td>
-                    <%= ((int)(100 * Math.random()))%>
-                </td>
+                <td> = </td>
+                <td><%= (n * i)%></td>
+             
             </tr>
-           <% } %>
+           <% }} %>
         </table>
         
     
