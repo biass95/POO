@@ -1,9 +1,11 @@
+<%-- 
+    Document   : index
+    Created on : 1 de out de 2020, 01:43:01
+    Author     : biancasobral
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
         <title>Index - JavaOO</title>
@@ -14,6 +16,6 @@ and open the template in the editor.
         <h1>JavaOO</h1>
         <h1>Índice</h1>
         <h3><a href="data.jsp">Classe Data</a></h3>
-        <div>TODO write content</div>
+        <h3><a href="pessoa.jsp">Classe Pessoa</a></h3>
     </body>
 </html>
