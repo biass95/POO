@@ -17,5 +17,6 @@
         <h1>Índice</h1>
         <h3><a href="data.jsp">Classe Data</a></h3>
         <h3><a href="pessoa.jsp">Classe Pessoa</a></h3>
+        <h3><a href="horario.jsp">Classe Horário</a></h3>
     </body>
 </html>
