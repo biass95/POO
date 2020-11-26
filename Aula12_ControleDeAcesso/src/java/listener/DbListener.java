@@ -26,7 +26,6 @@ public class DbListener implements ServletContextListener {
     return DriverManager.getConnection(DATABASE_URL);
     }
     
-    
     public static int getUsersCount() {
     Connection con = null;
     Statement stmt = null;
@@ -53,6 +52,7 @@ public class DbListener implements ServletContextListener {
         }
     return count;
     }
+    
     public static ArrayList<String> getUsersEmails() {
     ArrayList<String> list = new ArrayList<>();
     Connection con = null;
@@ -80,7 +80,6 @@ public class DbListener implements ServletContextListener {
         }
     return list;
     }
- 
  
     @Override
     public void contextInitialized(ServletContextEvent sce) {

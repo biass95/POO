@@ -16,6 +16,35 @@
         <%if (DbListener.exception != null){ %>
         <div style="color: red "><%= DbListener.exception %></div>
         <%}%>
+        
+        
+        <% 
+        if(request.getParameter("login")!= null) {
+            session.setAttribute("name",request.getParameter("name") );
+            response.sendRedirect(request.getRequestURI());
+        } if (request.getParameter("logout")!= null) {
+            session.removeAttribute("name");
+            response.sendRedirect(request.getRequestURI());
+        }
+        
+        %>
+        
+        
+        <%if (session.getAttribute("name") == null){%>
+        <form method="post">
+            <input type="text" name="name"/>
+            <input type="submit" name="login" value="Entrar"/>
+            
+        </form>
+        <%} else {%>
+        <form method="post">
+            Bem vindo, <%= session.getAttribute("name") %>
+            <input type="submit" name="logout" value="Sair"/>
+            
+        </form>
+        
+        <%} %>
+        
         <h1>Controle de Acesso</h1>
         <% try { %>  
         <h2>Usuários:</h2>
