@@ -53,6 +53,31 @@ public class DbListener implements ServletContextListener {
     return count;
     }
     
+        public static String login(String email, String password) {
+        Connection con = null;
+        Statement stmt = null;
+        ResultSet rs = null;
+        String name = null;
+        try {
+            Class.forName(DRIVER_CLASS);
+            con = getConection();
+            stmt = con.createStatement();
+            rs = stmt.executeQuery("SELECT name from users "
+                    + "WHERE email='"+email+"' and password_hash="+password.hashCode());
+            if(rs.next()){name = rs.getString("name");}
+            rs.close();
+            stmt.close();
+            con.close();    
+        } catch (Exception ex) {
+            exception = ex;
+            try {rs.close();} catch (Exception ex2) {}
+            try {stmt.close();} catch (Exception ex2) {}
+            try {con.close();} catch (Exception ex2) {}
+        }
+        
+        return name;
+    }
+    
     public static ArrayList<String> getUsersEmails() {
     ArrayList<String> list = new ArrayList<>();
     Connection con = null;
@@ -80,6 +105,8 @@ public class DbListener implements ServletContextListener {
         }
     return list;
     }
+    
+
  
     @Override
     public void contextInitialized(ServletContextEvent sce) {
@@ -117,6 +144,8 @@ public class DbListener implements ServletContextListener {
             try {stmt.close();} catch (Exception ex2) {}
             try {con.close();} catch (Exception ex2) {}
         }
+        
+        
         
     }
 

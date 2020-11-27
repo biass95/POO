@@ -18,11 +18,24 @@
         <%}%>
         
         
-        <% 
+        <% // Controle de sessao
+            
+        String loginErrorMessage = null;
         if(request.getParameter("login")!= null) {
-            session.setAttribute("name",request.getParameter("name") );
-            response.sendRedirect(request.getRequestURI());
-        } if (request.getParameter("logout")!= null) {
+            String email = request.getParameter("email");
+            String password = request.getParameter("password");
+            String name = DbListener.login(email, password);
+            if (name==null) {
+                loginErrorMessage = "usuário e/ ou senha inválidos";
+            } else {
+                session.setAttribute("email", email);
+                session.setAttribute("name", name );
+                response.sendRedirect(request.getRequestURI());        
+            }
+            
+        } 
+        if (request.getParameter("logout")!= null) {
+            session.removeAttribute("email");
             session.removeAttribute("name");
             response.sendRedirect(request.getRequestURI());
         }
@@ -30,21 +43,26 @@
         %>
         
         
-        <%if (session.getAttribute("name") == null){%>
+   <%if (session.getAttribute("email")==null) {%>
+        <%if (loginErrorMessage != null) { %>
+        <div style="color:red"><%=loginErrorMessage %></div>
+        <%}%>
         <form method="post">
-            <input type="text" name="name"/>
+           Email: <input type="text" name="email"/>
+           Senha: <input type="password" name="password"/>
             <input type="submit" name="login" value="Entrar"/>
-            
         </form>
         <%} else {%>
-        <form method="post">
+        <form>
             Bem vindo, <%= session.getAttribute("name") %>
-            <input type="submit" name="logout" value="Sair"/>
-            
+            <input type="submit" name="logout" value="Sair"/> 
         </form>
-        
+            
         <%} %>
         
+        <%if(session.getAttribute("email")== null) {%>
+        Entre com login usuario para ver o conteúdo
+        <%} else {%>
         <h1>Controle de Acesso</h1>
         <% try { %>  
         <h2>Usuários:</h2>
@@ -55,6 +73,6 @@
            <% } catch (Exception ex) {%>
            <div style="color:red"><%= ex.getMessage()%></div>
            <%}%>
-        <div></div>
+        <%}%>
     </body>
 </html>
